@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ПрорабПро — Ремонт квартир и домов под ключ</title>
+  <meta name="description" content="Профессиональный ремонт квартир, домов и коммерческих помещений. Портфолио работ, отзывы клиентов, прозрачные сметы.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Unbounded:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Анимированный фон -->
+  <div class="bg" aria-hidden="true">
+    <div class="bg__blob bg__blob--1"></div>
+    <div class="bg__blob bg__blob--2"></div>
+    <div class="bg__blob bg__blob--3"></div>
+    <div class="bg__noise"></div>
+  </div>
+
+  <!-- Навигация -->
+  <header class="nav-wrap">
+    <nav class="nav glass">
+      <a href="#top" class="nav__logo">
+        <span class="nav__logo-mark">П</span>
+        ПрорабПро
+      </a>
+      <ul class="nav__links">
+        <li><a href="#services">Услуги</a></li>
+        <li><a href="#works">Работы</a></li>
+        <li><a href="#process">Этапы</a></li>
+        <li><a href="#reviews">Отзывы</a></li>
+        <li><a href="#contact">Контакты</a></li>
+      </ul>
+      <a href="#contact" class="btn btn--small">Обсудить проект</a>
+      <button class="nav__burger" aria-label="Меню">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <main id="top">
+
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container">
+        <p class="hero__tag reveal glass-pill">Прораб с 15-летним опытом · Москва и область</p>
+        <h1 class="hero__title reveal">
+          Ремонт, который<br>
+          <span class="gradient-text">говорит сам за себя</span>
+        </h1>
+        <p class="hero__subtitle reveal">
+          Беру объект — сдаю результат. Квартиры, дома, коммерческие помещения.
+          Контроль каждого этапа, честная смета, фиксированные сроки.
+        </p>
+        <div class="hero__actions reveal">
+          <a href="#works" class="btn btn--primary">Смотреть работы</a>
+          <a href="#contact" class="btn btn--ghost">Получить смету</a>
+        </div>
+
+        <div class="hero__stats reveal">
+          <div class="stat glass">
+            <span class="stat__num" data-count="120">0</span><span class="stat__plus">+</span>
+            <span class="stat__label">сданных объектов</span>
+          </div>
+          <div class="stat glass">
+            <span class="stat__num" data-count="15">0</span>
+            <span class="stat__label">лет опыта</span>
+          </div>
+          <div class="stat glass">
+            <span class="stat__num" data-count="98">0</span><span class="stat__plus">%</span>
+            <span class="stat__label">клиентов рекомендуют</span>
+          </div>
+          <div class="stat glass">
+            <span class="stat__num" data-count="0">0</span>
+            <span class="stat__label">сорванных сроков</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero__scroll" aria-hidden="true"><span></span></div>
+    </section>
+
+    <!-- Услуги -->
+    <section class="section" id="services">
+      <div class="container">
+        <p class="section__tag reveal glass-pill">Что я делаю</p>
+        <h2 class="section__title reveal">Услуги</h2>
+        <div class="services">
+          <article class="service glass tilt reveal">
+            <div class="service__icon">🏠</div>
+            <h3>Ремонт квартир под ключ</h3>
+            <p>От черновой отделки до финальной уборки. Дизайнерский, капитальный и косметический ремонт.</p>
+          </article>
+          <article class="service glass tilt reveal">
+            <div class="service__icon">🏡</div>
+            <h3>Загородные дома</h3>
+            <p>Внутренняя отделка домов и коттеджей. Инженерные системы, отопление, утепление.</p>
+          </article>
+          <article class="service glass tilt reveal">
+            <div class="service__icon">🏢</div>
+            <h3>Коммерческие помещения</h3>
+            <p>Офисы, кафе, салоны. Работа в сжатые сроки, согласование с управляющими компаниями.</p>
+          </article>
+          <article class="service glass tilt reveal">
+            <div class="service__icon">📐</div>
+            <h3>Технадзор и сметы</h3>
+            <p>Проверю чужую бригаду, составлю честную смету, помогу не переплатить за материалы.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Работы -->
+    <section class="section" id="works">
+      <div class="container">
+        <p class="section__tag reveal glass-pill">Портфолио</p>
+        <h2 class="section__title reveal">Мои работы</h2>
+        <p class="section__subtitle reveal">Каждый объект — с фотофиксацией всех этапов. Фото ниже можно заменить на свои в папке <code>img/</code>.</p>
+
+        <div class="works">
+          <article class="work glass reveal">
+            <div class="work__img work__img--1">
+              <span class="work__badge glass-pill">Сдано · 2026</span>
+            </div>
+            <div class="work__body">
+              <h3>Квартира 84 м² · ЖК «Сердце Столицы»</h3>
+              <p>Дизайнерский ремонт под ключ: перепланировка, тёплые полы, скрытый свет, микроцемент.</p>
+              <div class="work__meta">
+                <span class="glass-pill">4,5 месяца</span>
+                <span class="glass-pill">под ключ</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="work glass reveal">
+            <div class="work__img work__img--2">
+              <span class="work__badge glass-pill">Сдано · 2025</span>
+            </div>
+            <div class="work__body">
+              <h3>Дом 210 м² · КП «Лесная Гавань»</h3>
+              <p>Полная внутренняя отделка, разводка инженерии, котельная, лестница из ясеня.</p>
+              <div class="work__meta">
+                <span class="glass-pill">7 месяцев</span>
+                <span class="glass-pill">инженерия</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="work glass reveal">
+            <div class="work__img work__img--3">
+              <span class="work__badge glass-pill">Сдано · 2025</span>
+            </div>
+            <div class="work__body">
+              <h3>Кофейня 65 м² · м. Чистые пруды</h3>
+              <p>Ремонт за 6 недель к открытию: вентиляция, барная зона, согласование с СЭС.</p>
+              <div class="work__meta">
+                <span class="glass-pill">6 недель</span>
+                <span class="glass-pill">коммерция</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="work glass reveal">
+            <div class="work__img work__img--4">
+              <span class="work__badge glass-pill">Сдано · 2024</span>
+            </div>
+            <div class="work__body">
+              <h3>Студия 42 м² · ЖК «Символ»</h3>
+              <p>Косметический ремонт с заменой электрики и сантехники. Бюджетно и аккуратно.</p>
+              <div class="work__meta">
+                <span class="glass-pill">2 месяца</span>
+                <span class="glass-pill">косметика</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Этапы -->
+    <section class="section" id="process">
+      <div class="container">
+        <p class="section__tag reveal glass-pill">Как я работаю</p>
+        <h2 class="section__title reveal">Этапы работы</h2>
+        <div class="process">
+          <div class="process__step glass reveal">
+            <span class="process__num">01</span>
+            <h3>Замер и смета</h3>
+            <p>Выезжаю на объект, делаю замеры, через 2 дня — детальная смета без скрытых пунктов.</p>
+          </div>
+          <div class="process__step glass reveal">
+            <span class="process__num">02</span>
+            <h3>Договор и график</h3>
+            <p>Фиксируем стоимость и сроки в договоре. Штрафные санкции за просрочку — на моей стороне.</p>
+          </div>
+          <div class="process__step glass reveal">
+            <span class="process__num">03</span>
+            <h3>Работы и отчёты</h3>
+            <p>Еженедельные фотоотчёты и видеосвязь с объекта. Вы всегда знаете, что происходит.</p>
+          </div>
+          <div class="process__step glass reveal">
+            <span class="process__num">04</span>
+            <h3>Сдача и гарантия</h3>
+            <p>Принимаете работу по чек-листу. Гарантия на все работы — 3 года по договору.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Отзывы -->
+    <section class="section" id="reviews">
+      <div class="container">
+        <p class="section__tag reveal glass-pill">Что говорят клиенты</p>
+        <h2 class="section__title reveal">Отзывы</h2>
+      </div>
+      <div class="marquee reveal">
+        <div class="marquee__track">
+          <article class="review glass">
+            <div class="review__stars">★★★★★</div>
+            <p>«Единственный прораб, который сдал объект раньше срока. Смета не выросла ни на рубль. Рекомендую всем знакомым».</p>
+            <div class="review__author">
+              <span class="review__avatar">АК</span>
+              <div><strong>Анна Ковалёва</strong><span>Квартира 84 м², 2026</span></div>
+            </div>
+          </article>
+          <article class="review glass">
+            <div class="review__stars">★★★★★</div>
+            <p>«Делал дом, живя в другом городе. Еженедельные видеоотчёты — это спасение. Приехал на готовое, всё идеально».</p>
+            <div class="review__author">
+              <span class="review__avatar">ДС</span>
+              <div><strong>Дмитрий Соколов</strong><span>Дом 210 м², 2025</span></div>
+            </div>
+          </article>
+          <article class="review glass">
+            <div class="review__stars">★★★★★</div>
+            <p>«Открыли кофейню вовремя только благодаря ему. Решал вопросы с УК и СЭС сам, мы занимались только бизнесом».</p>
+            <div class="review__author">
+              <span class="review__avatar">МЛ</span>
+              <div><strong>Мария Левина</strong><span>Кофейня, 2025</span></div>
+            </div>
+          </article>
+          <article class="review glass">
+            <div class="review__stars">★★★★★</div>
+            <p>«Честный человек. Нашёл ошибки в смете предыдущей бригады на 400 тысяч. Переделал всё качественно».</p>
+            <div class="review__author">
+              <span class="review__avatar">ИП</span>
+              <div><strong>Игорь Петров</strong><span>Технадзор, 2024</span></div>
+            </div>
+          </article>
+          <article class="review glass">
+            <div class="review__stars">★★★★★</div>
+            <p>«Бюджетный ремонт без ощущения бюджетности. Подсказал, где можно сэкономить, а где не стоит».</p>
+            <div class="review__author">
+              <span class="review__avatar">ЕВ</span>
+              <div><strong>Елена Васнецова</strong><span>Студия 42 м², 2024</span></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Контакты -->
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="contact glass reveal">
+          <div class="contact__info">
+            <p class="section__tag glass-pill">Связаться</p>
+            <h2>Обсудим ваш проект?</h2>
+            <p>Оставьте заявку — перезвоню в течение часа, договоримся о бесплатном выезде на замер.</p>
+            <div class="contact__links">
+              <a href="tel:+79000000000" class="glass-pill">📞 +7 (900) 000-00-00</a>
+              <a href="https://t.me/username" class="glass-pill">✈️ Telegram</a>
+              <a href="https://wa.me/79000000000" class="glass-pill">💬 WhatsApp</a>
+            </div>
+          </div>
+          <form class="contact__form" id="contactForm">
+            <input type="text" name="name" placeholder="Ваше имя" required>
+            <input type="tel" name="phone" placeholder="Телефон" required>
+            <textarea name="message" placeholder="Коротко о задаче: что ремонтируем, сколько метров" rows="4"></textarea>
+            <button type="submit" class="btn btn--primary">Отправить заявку</button>
+            <p class="contact__note">Нажимая кнопку, вы соглашаетесь на обработку персональных данных</p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <span>© 2026 ПрорабПро · Ремонт квартир и домов</span>
+      <a href="#top">Наверх ↑</a>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
