@@ -30,6 +30,7 @@ python3 -m http.server 8000
 | Тексты работ и отзывов | `index.html`, секции `#works` и `#reviews` |
 | Цифры в статистике | `index.html`, атрибуты `data-count` |
 | Фото работ | положите файлы в `img/` и в `css/style.css` замените фоны `.work__img--1…4` на `background-image: url("../img/work1.jpg")` |
+| Скролл-видео «Пролёт по объекту» | кадры лежат в `img/fly/` (нарезаны из видео: `ffmpeg -i video.mp4 -vf "select='not(mod(n\,7))',scale=540:960" -vsync vfr -c:v libwebp img/fly/f_%03d.webp`), количество кадров — константа `FRAMES` в `js/main.js`, длина секции — высота `.flythrough` в CSS |
 | Цвета неба по этапам | `js/experience.js`, массив `palettes` |
 | Длина полёта | `css/style.css`, высота `.journey` (700vh) |
 

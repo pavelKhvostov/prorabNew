@@ -431,6 +431,83 @@ a.glass-pill:hover {
   color: var(--text-dim);
 }
 
+/* ============ Скролл-видео: пролёт по объекту ============ */
+.flythrough {
+  position: relative;
+  height: 340vh;
+}
+
+.flythrough__sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.flythrough__layout {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 50px;
+}
+
+.flythrough__copy .section__subtitle { margin-bottom: 0; }
+
+.flythrough__frame {
+  position: relative;
+  width: min(42vh, 76vw);
+  aspect-ratio: 9 / 16;
+  padding: 12px;
+  border-radius: 36px;
+  overflow: hidden;
+}
+
+.flythrough__canvas,
+.flythrough__video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 26px;
+  background: #14121c;
+}
+
+.flythrough__progress {
+  position: absolute;
+  left: 28px; right: 28px; bottom: 24px;
+  height: 3px;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.18);
+  overflow: hidden;
+}
+
+.flythrough__progress span {
+  display: block;
+  width: 0%;
+  height: 100%;
+  border-radius: 3px;
+  background: var(--accent);
+}
+
+/* Фолбэк: обычное видео вместо канваса (reduced-motion или ошибка загрузки кадров) */
+.flythrough.is-fallback { height: auto; padding: 60px 0; }
+.flythrough.is-fallback .flythrough__sticky { position: static; height: auto; }
+.flythrough.is-fallback .flythrough__canvas,
+.flythrough.is-fallback .flythrough__progress { display: none; }
+.flythrough.is-fallback .flythrough__video { display: block; }
+
+@media (max-width: 960px) {
+  .flythrough__layout {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    text-align: center;
+    gap: 26px;
+  }
+  .flythrough__frame { width: min(48vh, 80vw); }
+}
+
 /* ============ Работы ============ */
 .works {
   display: grid;

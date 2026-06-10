@@ -63,6 +63,95 @@ navLinks.addEventListener('click', (e) => {
 const track = document.querySelector('.marquee__track');
 track.innerHTML += track.innerHTML;
 
+// ============ Скролл-видео: пролёт по объекту ============
+(function () {
+  const section = document.getElementById('flythrough');
+  if (!section) return;
+
+  const canvas = document.getElementById('flyCanvas');
+  const video = section.querySelector('.flythrough__video');
+  const progressBar = document.getElementById('flyProgress');
+  const ctx = canvas.getContext('2d');
+
+  const FRAMES = 140;
+  const src = (i) => `img/fly/f_${String(i + 1).padStart(3, '0')}.webp`;
+
+  // reduced-motion: показываем обычное видео с контролами
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    fallback();
+    return;
+  }
+
+  function fallback() {
+    section.classList.add('is-fallback');
+    video.hidden = false;
+    video.preload = 'metadata';
+  }
+
+  const frames = new Array(FRAMES).fill(null);
+  let loadStarted = false;
+  let drawnIndex = -1;
+  let current = 0;
+  let target = 0;
+  let rafActive = false;
+
+  function loadFrames() {
+    if (loadStarted) return;
+    loadStarted = true;
+    let failed = 0;
+    for (let i = 0; i < FRAMES; i++) {
+      const img = new Image();
+      img.src = src(i);
+      img.onload = () => {
+        frames[i] = img;
+        if (i === Math.round(current)) draw(i, true);
+      };
+      img.onerror = () => { if (++failed > FRAMES / 4) fallback(); };
+    }
+  }
+
+  // начинаем грузить кадры заранее, за экран до секции
+  new IntersectionObserver((entries, obs) => {
+    if (entries[0].isIntersecting) { loadFrames(); obs.disconnect(); }
+  }, { rootMargin: '100% 0px' }).observe(section);
+
+  function nearestLoaded(i) {
+    for (let d = 0; d < FRAMES; d++) {
+      if (frames[i - d]) return i - d;
+      if (frames[i + d]) return i + d;
+    }
+    return -1;
+  }
+
+  function draw(i, force) {
+    const idx = nearestLoaded(Math.max(0, Math.min(FRAMES - 1, i)));
+    if (idx < 0 || (idx === drawnIndex && !force)) return;
+    drawnIndex = idx;
+    ctx.drawImage(frames[idx], 0, 0, canvas.width, canvas.height);
+  }
+
+  function readProgress() {
+    const rect = section.getBoundingClientRect();
+    const total = section.offsetHeight - innerHeight;
+    const p = Math.min(Math.max(-rect.top / total, 0), 1);
+    target = p * (FRAMES - 1);
+    progressBar.style.width = `${p * 100}%`;
+    if (!rafActive) { rafActive = true; requestAnimationFrame(tick); }
+  }
+
+  function tick() {
+    current += (target - current) * 0.18;
+    if (Math.abs(target - current) < 0.4) current = target;
+    draw(Math.round(current));
+    if (current !== target) requestAnimationFrame(tick);
+    else rafActive = false;
+  }
+
+  addEventListener('scroll', readProgress, { passive: true });
+  addEventListener('resize', readProgress);
+  readProgress();
+})();
+
 // ============ Форма ============
 document.getElementById('contactForm').addEventListener('submit', (e) => {
   e.preventDefault();
