@@ -491,6 +491,8 @@ a.glass-pill:hover {
   background: var(--accent);
 }
 
+.flythrough__video[hidden] { display: none; }
+
 /* Фолбэк: обычное видео вместо канваса (reduced-motion или ошибка загрузки кадров) */
 .flythrough.is-fallback { height: auto; padding: 60px 0; }
 .flythrough.is-fallback .flythrough__sticky { position: static; height: auto; }
