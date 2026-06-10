@@ -13,7 +13,7 @@
     end: +el.dataset.end,
   }));
 
-  const FRAMES = 238;
+  const FRAMES = 245;
   const src = (i) => `img/bg/b_${String(i + 1).padStart(3, '0')}.webp`;
 
   function staticFallback() {
