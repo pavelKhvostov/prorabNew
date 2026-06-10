@@ -3,7 +3,6 @@ const revealObserver = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry, i) => {
       if (entry.isIntersecting) {
-        // лёгкая лесенка для элементов, попавших в кадр одновременно
         entry.target.style.transitionDelay = `${(i % 4) * 90}ms`;
         entry.target.classList.add('is-visible');
         revealObserver.unobserve(entry.target);
@@ -15,7 +14,7 @@ const revealObserver = new IntersectionObserver(
 
 document.querySelectorAll('.reveal').forEach((el) => revealObserver.observe(el));
 
-// ============ Анимация счётчиков в hero ============
+// ============ Анимация счётчиков ============
 function animateCount(el) {
   const target = +el.dataset.count;
   if (!target) { el.textContent = el.dataset.count; return; }
@@ -59,44 +58,6 @@ burger.addEventListener('click', () => navLinks.classList.toggle('is-open'));
 navLinks.addEventListener('click', (e) => {
   if (e.target.tagName === 'A') navLinks.classList.remove('is-open');
 });
-
-// ============ Параллакс блобов фона за курсором ============
-const blobs = document.querySelectorAll('.bg__blob');
-const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-if (!reduceMotion) {
-  let mx = 0, my = 0, cx = 0, cy = 0;
-
-  window.addEventListener('mousemove', (e) => {
-    mx = (e.clientX / window.innerWidth - 0.5) * 2;
-    my = (e.clientY / window.innerHeight - 0.5) * 2;
-  }, { passive: true });
-
-  (function parallax() {
-    cx += (mx - cx) * 0.04;
-    cy += (my - cy) * 0.04;
-    blobs.forEach((blob, i) => {
-      const depth = (i + 1) * 14;
-      blob.style.translate = `${cx * depth}px ${cy * depth}px`;
-    });
-    requestAnimationFrame(parallax);
-  })();
-}
-
-// ============ 3D-наклон карточек услуг ============
-if (!reduceMotion && matchMedia('(pointer: fine)').matches) {
-  document.querySelectorAll('.tilt').forEach((card) => {
-    card.addEventListener('mousemove', (e) => {
-      const r = card.getBoundingClientRect();
-      const x = (e.clientX - r.left) / r.width - 0.5;
-      const y = (e.clientY - r.top) / r.height - 0.5;
-      card.style.transform = `perspective(700px) rotateX(${-y * 7}deg) rotateY(${x * 7}deg) translateY(-4px)`;
-    });
-    card.addEventListener('mouseleave', () => {
-      card.style.transform = '';
-    });
-  });
-}
 
 // ============ Лента отзывов: дублируем для бесшовного цикла ============
 const track = document.querySelector('.marquee__track');

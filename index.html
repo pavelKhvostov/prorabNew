@@ -3,22 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ПрорабПро — Ремонт квартир и домов под ключ</title>
-  <meta name="description" content="Профессиональный ремонт квартир, домов и коммерческих помещений. Портфолио работ, отзывы клиентов, прозрачные сметы.">
+  <title>ПрорабПро — Ремонт как путешествие</title>
+  <meta name="description" content="Профессиональный ремонт квартир, домов и коммерческих помещений. Иммерсивный сайт-портфолио: работы, отзывы, прозрачные сметы.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Unbounded:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Unbounded:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-  <!-- Анимированный фон -->
-  <div class="bg" aria-hidden="true">
-    <div class="bg__blob bg__blob--1"></div>
-    <div class="bg__blob bg__blob--2"></div>
-    <div class="bg__blob bg__blob--3"></div>
-    <div class="bg__noise"></div>
+  <!-- Лоадер -->
+  <div class="loader" id="loader">
+    <div class="loader__mark">П</div>
+    <div class="loader__bar"><span></span></div>
   </div>
+
+  <!-- 3D-сцена -->
+  <canvas id="scene" aria-hidden="true"></canvas>
+  <div class="bg" aria-hidden="true"></div>
 
   <!-- Навигация -->
   <header class="nav-wrap">
@@ -28,9 +30,7 @@
         ПрорабПро
       </a>
       <ul class="nav__links">
-        <li><a href="#services">Услуги</a></li>
         <li><a href="#works">Работы</a></li>
-        <li><a href="#process">Этапы</a></li>
         <li><a href="#reviews">Отзывы</a></li>
         <li><a href="#contact">Контакты</a></li>
       </ul>
@@ -41,26 +41,56 @@
     </nav>
   </header>
 
-  <main id="top">
+  <!-- Полёт: спейсер задаёт длину скролла, главы — фиксированный оверлей -->
+  <div class="journey" id="top">
+    <div class="chapters" id="chapters">
 
-    <!-- Hero -->
-    <section class="hero">
+      <section class="chapter" data-start="0" data-end="0.13">
+        <p class="chapter__eyebrow glass-pill">Прораб · 15 лет в ремонте</p>
+        <h1 class="chapter__title">Ремонт — это<br>путешествие</h1>
+        <p class="chapter__text">Я ваш пилот на всём маршруте: от первого замера до передачи ключей. Пристегнитесь — покажу, как мы летим.</p>
+      </section>
+
+      <section class="chapter" data-start="0.16" data-end="0.33">
+        <p class="chapter__eyebrow glass-pill">Этап 01</p>
+        <h2 class="chapter__title">Взлёт.<br>Замер и смета</h2>
+        <p class="chapter__text">Выезжаю на объект, обмеряю каждый угол. Через два дня у вас детальная смета — без скрытых пунктов и «допов» в полёте.</p>
+      </section>
+
+      <section class="chapter" data-start="0.36" data-end="0.53">
+        <p class="chapter__eyebrow glass-pill">Этап 02</p>
+        <h2 class="chapter__title">Набор высоты.<br>Черновые работы</h2>
+        <p class="chapter__text">Стены, электрика, сантехника, стяжка. Невидимая работа, которая решает всё. Еженедельные фотоотчёты с борта.</p>
+      </section>
+
+      <section class="chapter" data-start="0.56" data-end="0.73">
+        <p class="chapter__eyebrow glass-pill">Этап 03</p>
+        <h2 class="chapter__title">Крейсерская.<br>Чистовая отделка</h2>
+        <p class="chapter__text">Высота набрана — идём по графику. Финишные покрытия, свет, сборка кухни, миллиметровая подгонка деталей.</p>
+      </section>
+
+      <section class="chapter" data-start="0.76" data-end="0.95">
+        <p class="chapter__eyebrow glass-pill">Этап 04</p>
+        <h2 class="chapter__title">Мягкая посадка.<br>Сдача объекта</h2>
+        <p class="chapter__text">Точно по расписанию. Принимаете работу по чек-листу, получаете ключи и гарантию 3 года по договору.</p>
+      </section>
+
+    </div>
+
+    <div class="journey__hint" id="hint">
+      <span class="journey__hint-mouse"><span></span></span>
+      Листайте, чтобы лететь
+    </div>
+  </div>
+
+  <!-- Приземление: контент -->
+  <main class="ground">
+
+    <section class="section section--first">
       <div class="container">
-        <p class="hero__tag reveal glass-pill">Прораб с 15-летним опытом · Москва и область</p>
-        <h1 class="hero__title reveal">
-          Ремонт, который<br>
-          <span class="gradient-text">говорит сам за себя</span>
-        </h1>
-        <p class="hero__subtitle reveal">
-          Беру объект — сдаю результат. Квартиры, дома, коммерческие помещения.
-          Контроль каждого этапа, честная смета, фиксированные сроки.
-        </p>
-        <div class="hero__actions reveal">
-          <a href="#works" class="btn btn--primary">Смотреть работы</a>
-          <a href="#contact" class="btn btn--ghost">Получить смету</a>
-        </div>
-
-        <div class="hero__stats reveal">
+        <p class="section__tag reveal glass-pill">Посадка совершена</p>
+        <h2 class="section__title reveal">Теперь — на землю,<br>к реальным объектам</h2>
+        <div class="stats reveal">
           <div class="stat glass">
             <span class="stat__num" data-count="120">0</span><span class="stat__plus">+</span>
             <span class="stat__label">сданных объектов</span>
@@ -79,40 +109,8 @@
           </div>
         </div>
       </div>
-      <div class="hero__scroll" aria-hidden="true"><span></span></div>
     </section>
 
-    <!-- Услуги -->
-    <section class="section" id="services">
-      <div class="container">
-        <p class="section__tag reveal glass-pill">Что я делаю</p>
-        <h2 class="section__title reveal">Услуги</h2>
-        <div class="services">
-          <article class="service glass tilt reveal">
-            <div class="service__icon">🏠</div>
-            <h3>Ремонт квартир под ключ</h3>
-            <p>От черновой отделки до финальной уборки. Дизайнерский, капитальный и косметический ремонт.</p>
-          </article>
-          <article class="service glass tilt reveal">
-            <div class="service__icon">🏡</div>
-            <h3>Загородные дома</h3>
-            <p>Внутренняя отделка домов и коттеджей. Инженерные системы, отопление, утепление.</p>
-          </article>
-          <article class="service glass tilt reveal">
-            <div class="service__icon">🏢</div>
-            <h3>Коммерческие помещения</h3>
-            <p>Офисы, кафе, салоны. Работа в сжатые сроки, согласование с управляющими компаниями.</p>
-          </article>
-          <article class="service glass tilt reveal">
-            <div class="service__icon">📐</div>
-            <h3>Технадзор и сметы</h3>
-            <p>Проверю чужую бригаду, составлю честную смету, помогу не переплатить за материалы.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- Работы -->
     <section class="section" id="works">
       <div class="container">
         <p class="section__tag reveal glass-pill">Портфолио</p>
@@ -179,37 +177,6 @@
       </div>
     </section>
 
-    <!-- Этапы -->
-    <section class="section" id="process">
-      <div class="container">
-        <p class="section__tag reveal glass-pill">Как я работаю</p>
-        <h2 class="section__title reveal">Этапы работы</h2>
-        <div class="process">
-          <div class="process__step glass reveal">
-            <span class="process__num">01</span>
-            <h3>Замер и смета</h3>
-            <p>Выезжаю на объект, делаю замеры, через 2 дня — детальная смета без скрытых пунктов.</p>
-          </div>
-          <div class="process__step glass reveal">
-            <span class="process__num">02</span>
-            <h3>Договор и график</h3>
-            <p>Фиксируем стоимость и сроки в договоре. Штрафные санкции за просрочку — на моей стороне.</p>
-          </div>
-          <div class="process__step glass reveal">
-            <span class="process__num">03</span>
-            <h3>Работы и отчёты</h3>
-            <p>Еженедельные фотоотчёты и видеосвязь с объекта. Вы всегда знаете, что происходит.</p>
-          </div>
-          <div class="process__step glass reveal">
-            <span class="process__num">04</span>
-            <h3>Сдача и гарантия</h3>
-            <p>Принимаете работу по чек-листу. Гарантия на все работы — 3 года по договору.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Отзывы -->
     <section class="section" id="reviews">
       <div class="container">
         <p class="section__tag reveal glass-pill">Что говорят клиенты</p>
@@ -261,13 +228,12 @@
       </div>
     </section>
 
-    <!-- Контакты -->
     <section class="section" id="contact">
       <div class="container">
         <div class="contact glass reveal">
           <div class="contact__info">
             <p class="section__tag glass-pill">Связаться</p>
-            <h2>Обсудим ваш проект?</h2>
+            <h2>Готовы к взлёту?</h2>
             <p>Оставьте заявку — перезвоню в течение часа, договоримся о бесплатном выезде на замер.</p>
             <div class="contact__links">
               <a href="tel:+79000000000" class="glass-pill">📞 +7 (900) 000-00-00</a>
@@ -291,10 +257,14 @@
   <footer class="footer">
     <div class="container footer__inner">
       <span>© 2026 ПрорабПро · Ремонт квартир и домов</span>
-      <a href="#top">Наверх ↑</a>
+      <a href="#top">К взлёту ↑</a>
     </div>
   </footer>
 
-  <script src="js/main.js"></script>
+  <script type="importmap">
+    { "imports": { "three": "https://unpkg.com/three@0.160.0/build/three.module.js" } }
+  </script>
+  <script type="module" src="js/experience.js"></script>
+  <script src="js/main.js" defer></script>
 </body>
 </html>
