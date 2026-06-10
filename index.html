@@ -18,8 +18,9 @@
     <div class="loader__bar"><span></span></div>
   </div>
 
-  <!-- 3D-сцена -->
-  <canvas id="scene" aria-hidden="true"></canvas>
+  <!-- Фоновое видео, листаемое скроллом -->
+  <canvas id="bgVideo" aria-hidden="true"></canvas>
+  <div class="journey-veil" aria-hidden="true"></div>
   <div class="bg" aria-hidden="true"></div>
 
   <!-- Навигация -->
@@ -106,24 +107,6 @@
           <div class="stat glass">
             <span class="stat__num" data-count="0">0</span>
             <span class="stat__label">сорванных сроков</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Скролл-видео: пролёт по объекту -->
-    <section class="flythrough" id="flythrough">
-      <div class="flythrough__sticky">
-        <div class="container flythrough__layout">
-          <div class="flythrough__copy">
-            <p class="section__tag glass-pill">Пролёт по объекту</p>
-            <h2 class="section__title">Листайте —<br>камера летит за вами</h2>
-            <p class="section__subtitle">Дом-патио, сданный под ключ. Скролл управляет полётом: вперёд, назад — кадр в кадр.</p>
-          </div>
-          <div class="flythrough__frame glass">
-            <canvas class="flythrough__canvas" id="flyCanvas" width="540" height="960"></canvas>
-            <video class="flythrough__video" src="assets/flythrough.mp4" muted playsinline controls preload="none" hidden></video>
-            <div class="flythrough__progress"><span id="flyProgress"></span></div>
           </div>
         </div>
       </div>
@@ -279,10 +262,7 @@
     </div>
   </footer>
 
-  <script type="importmap">
-    { "imports": { "three": "https://unpkg.com/three@0.160.0/build/three.module.js" } }
-  </script>
-  <script type="module" src="js/experience.js"></script>
+  <script src="js/journey.js" defer></script>
   <script src="js/main.js" defer></script>
 </body>
 </html>
